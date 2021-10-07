@@ -9,52 +9,31 @@ class Post extends Migration
 	public function up()
         {
                 $this->forge->addField([
-					'post_id' => [
+					'id' => [
 						'type' => 'INT',
-						'constraint' => 11,
+						'constraint' => 5,
 						'unsigned' => true,
 						'auto_increment' => true,
 					],
-					'judul' => [
+					'fullname' => [
 						'type' => 'VARCHAR',
 						'constraint' => 100,
 					],
-					'deskripsi' => [
-						'type' => 'TEXT',
-					],
-					'gambar' => [
-						'type' => 'VARCHAR',
-						'constraint' => 150,
-						'null' => true,
-					],
-					'author' => [
-						'type' =>'VARCHAR',
-						'constraint' => 100,
-					],
-					'kategori' =>[
+					'email' => [
 						'type' => 'VARCHAR',
 						'constraint' => 100,
 					],
-					'slug' => [
+					'password' => [
 						'type' => 'VARCHAR',
 						'constraint' => 100,
-						'unique' => true,
-					],
-					'created_at' => [
-						'type' => 'DATETIME',
-						'null' => true,
-					],
-					'updated_at' => [
-						'type' => 'DATETIME',
-						'null' => true,    
 					],
                 ]);
-                $this->forge->addKey('post_id', true);
-                $this->forge->createTable('post');
+                $this->forge->addKey('id', true);
+                $this->forge->createTable('user');
         }
 
         public function down()
         {
-                $this->forge->dropTable('post');
+                $this->forge->dropTable('user');
         }
 }
